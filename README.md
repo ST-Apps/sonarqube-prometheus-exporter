@@ -23,3 +23,10 @@ python3 ./exporter.py <port> <sonar_url> <sonar_username> <sonar_password> <poll
 ```
 docker run -p 8181:8181 -e SONAR_SERVER=<sonar_url> -e SONAR_USERNAME=<sonar_username> -e SONAR_PASSWORD=<sonar_password> <polling_interval> sonarqube-exporter:latest
 ```
+## Grafana
+
+A sample dashboard is provided [here](grafana-dashboard.json)
+
+### Screenshots
+
+![grafana-screenshot](./images/grafana-screenshot.png)
