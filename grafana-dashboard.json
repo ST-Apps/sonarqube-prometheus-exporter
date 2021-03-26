@@ -1,0 +1,822 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "gauge",
+      "name": "Gauge",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "7.2.1"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": "${DS_PROMETHEUS}",
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 14,
+      "panels": [],
+      "title": "System",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_PROMETHEUS}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "decimals": 0,
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 1
+      },
+      "hiddenSeries": false,
+      "id": 6,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.1",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "webjvmstate_systemloadaverage_percent",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Average System Load",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "percentunit",
+          "label": null,
+          "logBase": 1,
+          "max": "1",
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "${DS_PROMETHEUS}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 1
+      },
+      "id": 2,
+      "interval": null,
+      "links": [],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.1",
+      "targets": [
+        {
+          "expr": "statistics_usercount",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Users count",
+          "refId": "A"
+        },
+        {
+          "expr": "statistics_projectcount",
+          "interval": "",
+          "legendFormat": "Projects count",
+          "refId": "B"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Statistics",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "${DS_PROMETHEUS}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 80
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "decmbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 9
+      },
+      "id": 4,
+      "interval": null,
+      "links": [],
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^Used$/",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "7.2.1",
+      "targets": [
+        {
+          "expr": "webjvmstate_maxmemorymb - webjvmstate_freememorymb",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Used",
+          "refId": "A"
+        },
+        {
+          "expr": "webjvmstate_maxmemorymb",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Max",
+          "refId": "B"
+        },
+        {
+          "expr": "webjvmstate_freememorymb",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Free",
+          "refId": "C"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Memory",
+      "transformations": [],
+      "type": "gauge"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "${DS_PROMETHEUS}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 80
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "decmbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 9
+      },
+      "id": 7,
+      "interval": null,
+      "links": [],
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^Used$/",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "7.2.1",
+      "targets": [
+        {
+          "expr": "webjvmstate_heapmaxmb_bytes - webjvmstate_heapusedmb_bytes",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Used",
+          "refId": "A"
+        },
+        {
+          "expr": "webjvmstate_heapmaxmb_bytes",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Max",
+          "refId": "B"
+        },
+        {
+          "expr": "webjvmstate_heapusedmb_bytes",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Free",
+          "refId": "C"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Heap",
+      "transformations": [],
+      "type": "gauge"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "${DS_PROMETHEUS}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 80
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "decmbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 9
+      },
+      "id": 8,
+      "interval": null,
+      "links": [],
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^Used$/",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "7.2.1",
+      "targets": [
+        {
+          "expr": "webjvmstate_nonheapcommittedmb_bytes - webjvmstate_nonheapusedmb_bytes",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Used",
+          "refId": "A"
+        },
+        {
+          "expr": "webjvmstate_nonheapcommittedmb_bytes",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Max",
+          "refId": "B"
+        },
+        {
+          "expr": "webjvmstate_nonheapusedmb_bytes",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Free",
+          "refId": "C"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Non Heap",
+      "transformations": [],
+      "type": "gauge"
+    },
+    {
+      "collapsed": false,
+      "datasource": "${DS_PROMETHEUS}",
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 17
+      },
+      "id": 12,
+      "panels": [],
+      "title": "Search Engine",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_PROMETHEUS}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "decimals": 0,
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 18
+      },
+      "hiddenSeries": false,
+      "id": 15,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.1",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "searchstate_cpuusage",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "CPU Usage",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "percentunit",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "${DS_PROMETHEUS}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 80
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 18
+      },
+      "id": 16,
+      "interval": null,
+      "links": [],
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^Used$/",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "7.2.1",
+      "targets": [
+        {
+          "expr": "searchstate_jvmheapmax_bytes - searchstate_jvmheapused_bytes",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Used",
+          "refId": "A"
+        },
+        {
+          "expr": "searchstate_jvmheapmax_bytes",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Max",
+          "refId": "B"
+        },
+        {
+          "expr": "searchstate_jvmheapused_bytes",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Free",
+          "refId": "C"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Heap",
+      "transformations": [],
+      "type": "gauge"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "${DS_PROMETHEUS}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 10
+              },
+              {
+                "color": "green",
+                "value": 20
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 18
+      },
+      "id": 17,
+      "interval": null,
+      "links": [],
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^Free$/",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "7.2.1",
+      "targets": [
+        {
+          "expr": "searchstate_diskavailable_bytes",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Max",
+          "refId": "B"
+        },
+        {
+          "expr": "searchstate_storesize_bytes",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Used",
+          "refId": "C"
+        },
+        {
+          "expr": "searchstate_diskavailable_bytes - searchstate_storesize_bytes",
+          "interval": "",
+          "legendFormat": "Free",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Disk",
+      "transformations": [],
+      "type": "gauge"
+    }
+  ],
+  "schemaVersion": 26,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Sonarqube",
+  "uid": "XGq36QQMz",
+  "version": 2
+}
