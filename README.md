@@ -25,7 +25,8 @@ docker run -p 8181:8181 -e SONAR_SERVER=<sonar_url> -e SONAR_USERNAME=<sonar_use
 ```
 ## Grafana
 
-A sample dashboard is provided [here](grafana-dashboard.json)
+A sample dashboard is provided [here](grafana-dashboard.json).
+You can also import it in your instance from [Grafana Dashboards](https://grafana.com/grafana/dashboards/14152).
 
 ### Screenshots
 
