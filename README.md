@@ -1,6 +1,8 @@
 # sonarqube-prometheus-exporter
 Prometheus system metrics exporter for Sonarqube.
 
+![docker workflow](https://github.com/st-apps/sonarqube-prometheus-exporter/actions/workflows/docker-publish.yml/badge.svg)
+
 This exporter retrieves all the available system infos from the `api/system/info` endpoint on the provided Sonarqube instance, exporting them into a Prometheus-compatible format.
 
 > Exported metrics are extracted dynamically, this means that there are chances that some of them will be duplicated but under different names.
