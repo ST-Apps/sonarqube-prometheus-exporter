@@ -105,4 +105,4 @@ if __name__ == '__main__':
   start_http_server(int(sys.argv[1]))
   REGISTRY.register(JsonCollector(sys.argv[2], sys.argv[3], sys.argv[4]))
 
-  while True: time.sleep(int(sys.argv[4])))
+  while True: time.sleep(int(sys.argv[5]))
