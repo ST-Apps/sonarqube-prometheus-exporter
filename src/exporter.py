@@ -5,8 +5,12 @@ import json
 import requests
 import sys
 import time
-import collections
 import humanfriendly
+
+try:
+    from collections.abc import MutableMapping
+except ImportError:
+    from collections import MutableMapping
 
 crumbs = False
 def flatten(dictionary, parent_key=False, separator='_'):
@@ -23,7 +27,7 @@ def flatten(dictionary, parent_key=False, separator='_'):
         if crumbs: print(('checking:',key))
         new_key = (re.sub('[^A-Za-z0-9]+', '', str(parent_key)) + separator + re.sub('[^A-Za-z0-9]+', '', key) if parent_key else key).lower()
         
-        if isinstance(value, collections.MutableMapping):
+        if isinstance(value, MutableMapping):
             if crumbs: print((new_key,': dict found'))
             if not list(value.items()):
                 if crumbs: print(('Adding key-value pair:',new_key,None))
